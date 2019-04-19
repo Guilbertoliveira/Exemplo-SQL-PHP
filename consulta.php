@@ -33,8 +33,28 @@ mysqli_close($conexao);
         <h1>consulta</h1>
         <hr><br><br>
 
+        <form method="get" action="">
+        Filtrar por posição <input type="text" name="filtro" class="campo" maxLength="40" required autofocus><br>
+        <input type="submit" value="Pesquisar"class="btn">
         <?php
         print "foram encontrados $registros";
+        
+        print "<br></br>";
+        while($exibirRegistro = mysqli_fetch_array($consulta)) // mysqli_fetch_array() cria uma array com indice 0 para os campos do sql 
+       {
+        $codigo = $exibirRegistro[0];
+        $nome = $exibirRegistro[1];
+        $emai = $exibirRegistro[2];
+        $profissao = $exibirRegistro[3];
+
+        print "<div class='con'>";
+        print "$codigo<br>";
+        print "$nome<br>";
+        print "$emai<br>";
+        print "$profissao";
+        print "<br></br>";
+        print "</div>";
+       }
         ?>
 
 
