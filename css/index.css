@@ -78,12 +78,12 @@ article{
 .con{
     
     padding: 5%;
-    margin: 20px; /*diminui o espaçamento de uma margem para outra */
+    margin: 5px; /*diminui o espaçamento de uma margem para outra */
     padding: 5px;
     padding-left: 5px; /* afasta palavras das bordas */
     margin-left: -10px; /*margem do lado esquerdo*/
     margin-right: 0px; /* margem do lado direito*/
-    background-color: rgb(110, 131, 252);
+    background-color: rgb(202, 202, 202);
     
 
     

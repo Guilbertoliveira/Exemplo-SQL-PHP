@@ -2,7 +2,10 @@
 
 include_once("conexao.php");
 
-$sql = "select * from usuarios"; // filtro
+$filtro = isset($_GET['filtro'])?$_GET['filtro']:""; //metodo get do campo filtro para filtros.
+
+
+$sql = "select * from usuarios where nome like '%$filtro%' order by nome"; // filtro por nome
 $consulta = mysqli_query($conexao, $sql); //consultando
 $registros = mysqli_num_rows($consulta); // mostrar quantas linhas existem no banco de dados
 
@@ -34,10 +37,12 @@ mysqli_close($conexao);
         <hr><br><br>
 
         <form method="get" action="">
-        Filtrar por posição <input type="text" name="filtro" class="campo" maxLength="40" required autofocus><br>
+        Filtrar por Nome <input type="text" name="filtro" class="campo" maxLength="40" required autofocus><br>
         <input type="submit" value="Pesquisar"class="btn">
         <?php
+        print "Resultado da pesquisa com a palavra <strong>$filtro</strong> <br>"; // deixando palavra negrito strong
         print "foram encontrados $registros";
+        
         
         print "<br></br>";
         while($exibirRegistro = mysqli_fetch_array($consulta)) // mysqli_fetch_array() cria uma array com indice 0 para os campos do sql 
