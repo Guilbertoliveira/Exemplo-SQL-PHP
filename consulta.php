@@ -2,6 +2,9 @@
 
 include_once("conexao.php");
 
+$sql = "select * from usuarios"; // filtro
+$consulta = mysqli_query($conexao, $sql); //consultando
+$registros = mysqli_num_rows($consulta); // mostrar quantas linhas existem no banco de dados
 
 mysqli_close($conexao);
 ?>
@@ -31,7 +34,7 @@ mysqli_close($conexao);
         <hr><br><br>
 
         <?php
-
+        print "foram encontrados $registros";
         ?>
 
 
